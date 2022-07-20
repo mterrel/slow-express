@@ -51,9 +51,7 @@ router.post("/", asyncMiddleware(async (req, res) => {
 
 router.get('/', asyncMiddleware(async (req, res) => {
   const todos = await prisma.TodoItem.findMany();
-  await new Promise((resolve) => {
-    setTimeout(resolve, 60 * 1000);
-  })
+  process.exit(1);
   res.json(todos);
 }));
 
