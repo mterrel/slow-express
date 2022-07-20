@@ -50,7 +50,7 @@ router.post("/", asyncMiddleware(async (req, res) => {
 }));
 
 router.get('/', (req, res) => {
-  throw new Error("Oops");
+  process.exit(1);
 });
 
 router.patch('/:id', asyncMiddleware(async (req, res) => {
