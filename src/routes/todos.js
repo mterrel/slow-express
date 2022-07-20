@@ -49,11 +49,9 @@ router.post("/", asyncMiddleware(async (req, res) => {
   res.json(result);
 }));
 
-router.get('/', asyncMiddleware(async (req, res) => {
-  const todos = await prisma.TodoItem.findMany();
-  process.exit(1);
-  res.json(todos);
-}));
+router.get('/', (req, res) => {
+  throw new Error("Oops");
+});
 
 router.patch('/:id', asyncMiddleware(async (req, res) => {
   const { id } = req.params;
